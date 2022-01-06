@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生信息管理系统</title>
+    <link rel="stylesheet" type="text/css" href="css/login&register.css">
+    <script type="text/javascript" src="js/util.js"></script>
+    <script type="text/javascript">
+        function validateForm(){
+            var formItem1 = new FormItem("username");
+            var formItem2 = new FormItem("password");
+            var formItemArr = [formItem1,formItem2];
+            var result = util.isNotEmpty(formItemArr);
+            if (!result) document.getElementById("msg").innerHTML = "<img src='images/010.gif'>账号或密码不能为空";
+            return result;
+        }
+    </script>
+</head>
+<body style="background-image: url('/images/background.jpg')">
+    <header>
+        <nav>
+            <ul>
+                <a href="#"><li>首页</li></a>
+                <a href="#"><li>关于系统</li></a>
+                <a href="login.html"><li>登录</li></a>
+                <a href="register.html"><li>注册</li></a>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <img class="login_bg" src="images/login.png">
+            <form id="formId" class="form" action="/myWeb/login" onsubmit="return validateForm()" method="post">
+                <h3>学生信息管理系统</h3>
+                <p>登录</p>
+                <input id="username" type="text" autofocus="autofocus" name="username" value placeholder="用户名">
+                <input id="password" type="password" name="password" value placeholder="密码">
+                <p>权限级别</p>
+                <span class="radio">
+                    <input type="radio" name="level" value="用户" checked="checked"><span>用户</span>
+                    <input type="radio" name="level" value="管理员"><span>管理员</span>
+                </span>
+                <span id="msg" style="color: red;font-size: 8px"></span>
+                <input id="submit" type="submit" name="submit" value="登录">
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="info">
+            <ul>
+                <a href="#"><li>学生信息管理系统</li></a>
+                <a href="#"><li>帮助与反馈</li></a>
+                <a href="#"><li>联系我们</li></a>
+            </ul>
+        </div>
+        <div class="copyright">
+            &copy; Copyright. All rights reserved. Design by <a href="#">Verb</a>
+        </div>
+    </footer>
+</body>
+</html>
